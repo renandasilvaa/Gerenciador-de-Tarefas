@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useLocalStorage from '../hooks/useLocalStorage';
+import LocalStorage from '../hooks/LocalStorage';
 import TaskList from './TaskList';
 
 const Form = () => {
@@ -8,7 +8,7 @@ const Form = () => {
   const [priority, setPriority] = useState('');
   const [description, setDescription] = useState('');
 
-  const [tasks, setTasks] = useLocalStorage('tarefas', []);
+  const [tasks, setTasks] = LocalStorage('tarefas', []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
