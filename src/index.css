@@ -1,0 +1,13 @@
+@import url('https://googleapis.com');
+
+@import "tailwindcss";
+
+@theme {
+  --font-garamond: "EB Garamond", serif;
+  --font-space: "Space Grotesk", sans-serif;
+  
+}
+
+html{
+    scroll-behavior: smooth;
+}
