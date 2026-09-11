@@ -57,8 +57,10 @@ const TaskItem = ({ task, onToggleComplete, onRemove }) => {
 };
 
 const TaskList = ({ tasks, onToggleComplete, onRemove }) => {
+  // controla a aba que ta selecionada
   const [filter, setFilter] = useState('todas');
 
+  // filtra a lista com a aba que a pessoa clicou
   const filteredTasks = tasks.filter((t) => {
     if (filter === 'pendentes') return !t.completed;
     if (filter === 'concluidas') return t.completed;

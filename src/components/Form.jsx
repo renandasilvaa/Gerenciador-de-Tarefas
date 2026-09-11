@@ -3,13 +3,16 @@ import LocalStorage from '../hooks/LocalStorage';
 import TaskList from './TaskList';
 
 const Form = () => {
+  // guarda o que o usuário digita em cada campo do form
   const [task, setTask] = useState('');
   const [date, setDate] = useState('');
   const [priority, setPriority] = useState('');
   const [description, setDescription] = useState('');
 
+  // onde as tarefas fica guardadas
   const [tasks, setTasks] = LocalStorage('tarefas', []);
 
+  // cria a tarefa nova e bota na lista
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -30,12 +33,14 @@ const Form = () => {
     setDescription('');
   };
 
+  // acha a tarefa pelo id e inverte o bool state completed dela
   const handleToggleComplete = (id) => {
     setTasks((prevTasks) =>
       prevTasks.map((t) => t.id === id ? { ...t, completed: !t.completed } : t )
     );
   };
 
+  // tira a tarefa da lista
   const handleRemove = (id) => {
     setTasks((prevTasks) => prevTasks.filter((t) => t.id !== id));
   };
